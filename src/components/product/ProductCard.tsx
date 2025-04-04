@@ -54,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <h3 className="font-semibold text-lg text-gray-900 group-hover:text-agro-primary transition-colors">{name}</h3>
             <div className="flex items-center justify-between mt-2">
               <span className="font-bold text-agro-primary">
-                ${price} <span className="text-sm text-gray-500 font-normal">{unit}</span>
+                ₹{price} <span className="text-sm text-gray-500 font-normal">{unit}</span>
               </span>
               <span className="text-sm text-gray-500">
                 by {farmer}

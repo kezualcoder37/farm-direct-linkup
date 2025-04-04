@@ -7,49 +7,49 @@ import { MapPin, ShoppingBag } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-// Mock data for featured products
+// Mock data for featured products - updated for India
 const featuredProducts = [
   {
     id: 1,
-    name: "Organic Tomatoes",
-    price: 4.99,
+    name: "Organic Basmati Rice",
+    price: 120,
     unit: "per kg",
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80",
-    farmer: "Green Valley Farm",
-    location: "Riverside, CA",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    farmer: "Kumar Organic Farm",
+    location: "Punjab, India",
     featured: true,
     organic: true
   },
   {
     id: 2,
-    name: "Fresh Carrots",
-    price: 2.49,
-    unit: "per bunch",
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80",
-    farmer: "Sunshine Acres",
-    location: "Portland, OR",
+    name: "Fresh Onions",
+    price: 35,
+    unit: "per kg",
+    image: "https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&w=800&q=80",
+    farmer: "Sharma Farms",
+    location: "Maharashtra, India",
     featured: true,
     organic: false
   },
   {
     id: 3,
-    name: "Organic Potatoes",
-    price: 3.99,
+    name: "Organic Turmeric",
+    price: 210,
     unit: "per kg",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80",
-    farmer: "Harvest Fields",
-    location: "Boulder, CO",
+    image: "https://images.unsplash.com/photo-1615485500704-8e990f9900f6?auto=format&fit=crop&w=800&q=80",
+    farmer: "Patel Spice Garden",
+    location: "Karnataka, India",
     featured: true,
     organic: true
   },
   {
     id: 4,
-    name: "Fresh Apples",
-    price: 5.99,
-    unit: "per kg",
-    image: "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?auto=format&fit=crop&w=800&q=80",
-    farmer: "Orchard Valley",
-    location: "Wenatchee, WA",
+    name: "Fresh Alphonso Mangoes",
+    price: 450,
+    unit: "per dozen",
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80",
+    farmer: "Singh Orchards",
+    location: "Ratnagiri, India",
     featured: true,
     organic: false
   }
@@ -68,7 +68,7 @@ const FeaturedProducts: React.FC = () => {
         >
           <h2 className="text-3xl font-bold text-gray-900">Featured Products</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover handpicked seasonal produce directly from local farms
+            Discover handpicked seasonal produce directly from local farms across India
           </p>
         </motion.div>
 
@@ -104,7 +104,7 @@ const FeaturedProducts: React.FC = () => {
                     <h3 className="font-semibold text-lg text-gray-900 group-hover:text-agro-primary transition-colors">{product.name}</h3>
                     <div className="flex items-center justify-between mt-2">
                       <span className="font-bold text-agro-primary">
-                        ${product.price} <span className="text-sm text-gray-500 font-normal">{product.unit}</span>
+                        ₹{product.price} <span className="text-sm text-gray-500 font-normal">{product.unit}</span>
                       </span>
                       <span className="text-sm text-gray-500">
                         by {product.farmer}

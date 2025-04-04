@@ -21,7 +21,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('all');
   const [isOrganic, setIsOrganic] = useState(false);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
   const [showFilters, setShowFilters] = useState(false);
 
   const handleFilterSubmit = () => {
@@ -76,14 +76,15 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFilterChange }) => {
                 <SelectItem value="vegetables">Vegetables</SelectItem>
                 <SelectItem value="fruits">Fruits</SelectItem>
                 <SelectItem value="dairy">Dairy</SelectItem>
-                <SelectItem value="meat">Meat</SelectItem>
                 <SelectItem value="grains">Grains</SelectItem>
+                <SelectItem value="spices">Spices</SelectItem>
+                <SelectItem value="produce">Produce</SelectItem>
               </SelectContent>
             </Select>
           </div>
           
           <div>
-            <Label>Price Range</Label>
+            <Label>Price Range (₹)</Label>
             <div className="flex items-center gap-4 mt-1">
               <Input
                 type="number"

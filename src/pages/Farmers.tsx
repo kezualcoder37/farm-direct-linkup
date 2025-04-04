@@ -8,61 +8,61 @@ import { Button } from "@/components/ui/button";
 import { MapPin, MessageSquare, Star, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Mock data for farmers
+// Mock data for farmers - updated for India
 const farmers = [
   {
     id: 1,
-    name: "Green Valley Farm",
-    owner: "Maria Rodriguez",
+    name: "Kumar Organic Farm",
+    owner: "Rajesh Kumar",
     image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=800&q=80",
     profileImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&h=200&q=80",
-    location: "Riverside, CA",
+    location: "Punjab, India",
     rating: 4.9,
     reviews: 24,
-    products: ["Tomatoes", "Peppers", "Cucumbers"],
-    description: "Family-owned organic farm specializing in heirloom vegetables. We've been farming sustainably for over 20 years.",
+    products: ["Basmati Rice", "Wheat", "Corn"],
+    description: "Family-owned organic farm specializing in traditional grain cultivation. We've been farming sustainably for over 20 years.",
     verified: true,
     organic: true
   },
   {
     id: 2,
-    name: "Sunshine Acres",
-    owner: "Robert Johnson",
+    name: "Sharma Farms",
+    owner: "Priya Sharma",
     image: "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=80",
     profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
-    location: "Portland, OR",
+    location: "Maharashtra, India",
     rating: 4.7,
     reviews: 18,
-    products: ["Carrots", "Radishes", "Beets"],
-    description: "Specializing in root vegetables grown using regenerative farming practices. Our mission is to heal the soil while producing nutrient-dense food.",
+    products: ["Onions", "Tomatoes", "Potatoes"],
+    description: "Specializing in vegetable farming using regenerative farming practices. Our mission is to heal the soil while producing nutrient-dense food.",
     verified: true,
     organic: false
   },
   {
     id: 3,
-    name: "Harvest Fields",
-    owner: "Emily Chen",
+    name: "Patel Spice Garden",
+    owner: "Ankit Patel",
     image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80",
     profileImage: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&h=200&q=80",
-    location: "Boulder, CO",
+    location: "Karnataka, India",
     rating: 4.8,
     reviews: 31,
-    products: ["Potatoes", "Onions", "Garlic"],
-    description: "Certified organic farm focusing on soil health and biodiversity. We grow vegetables that are nutrient-dense and full of flavor.",
+    products: ["Turmeric", "Cardamom", "Black Pepper"],
+    description: "Certified organic farm focusing on spice cultivation with traditional methods. We grow spices that are aromatic and full of flavor.",
     verified: true,
     organic: true
   },
   {
     id: 4,
-    name: "Orchard Valley",
-    owner: "James Wilson",
+    name: "Singh Orchards",
+    owner: "Arjun Singh",
     image: "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=800&q=80",
     profileImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
-    location: "Wenatchee, WA",
+    location: "Ratnagiri, India",
     rating: 4.6,
     reviews: 15,
-    products: ["Apples", "Pears", "Cherries"],
-    description: "Fourth-generation family orchard producing tree fruits with minimal intervention. Our apples are known for their exceptional flavor.",
+    products: ["Alphonso Mangoes", "Cashews", "Coconuts"],
+    description: "Fourth-generation family orchard producing premium fruits with minimal intervention. Our mangoes are known for their exceptional sweetness.",
     verified: false,
     organic: false
   },
@@ -77,7 +77,7 @@ const Farmers: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Our Farmers</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover the passionate farmers behind your food and connect directly with them
+              Discover the passionate farmers across India and connect directly with them
             </p>
           </div>
 

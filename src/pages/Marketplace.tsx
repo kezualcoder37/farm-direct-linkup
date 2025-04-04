@@ -1,98 +1,97 @@
-
 import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ProductFilters from '../components/marketplace/ProductFilters';
 import ProductCard from '../components/product/ProductCard';
 
-// Mock data for products
+// Mock data for products - updated with Indian crops, names, and currency
 const allProducts = [
   {
     id: 1,
-    name: "Organic Tomatoes",
-    price: 4.99,
+    name: "Organic Basmati Rice",
+    price: 120,
     unit: "per kg",
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80",
-    farmer: "Green Valley Farm",
-    location: "Riverside, CA",
-    category: "vegetables",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80",
+    farmer: "Kumar Organic Farm",
+    location: "Punjab, India",
+    category: "grains",
     organic: true
   },
   {
     id: 2,
-    name: "Fresh Carrots",
-    price: 2.49,
-    unit: "per bunch",
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80",
-    farmer: "Sunshine Acres",
-    location: "Portland, OR",
+    name: "Fresh Onions",
+    price: 35,
+    unit: "per kg",
+    image: "https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&w=800&q=80",
+    farmer: "Sharma Farms",
+    location: "Maharashtra, India",
     category: "vegetables",
     organic: false
   },
   {
     id: 3,
-    name: "Organic Potatoes",
-    price: 3.99,
+    name: "Organic Turmeric",
+    price: 210,
     unit: "per kg",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80",
-    farmer: "Harvest Fields",
-    location: "Boulder, CO",
-    category: "vegetables",
+    image: "https://images.unsplash.com/photo-1615485500704-8e990f9900f6?auto=format&fit=crop&w=800&q=80",
+    farmer: "Patel Spice Garden",
+    location: "Karnataka, India",
+    category: "spices",
     organic: true
   },
   {
     id: 4,
-    name: "Fresh Apples",
-    price: 5.99,
-    unit: "per kg",
-    image: "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?auto=format&fit=crop&w=800&q=80",
-    farmer: "Orchard Valley",
-    location: "Wenatchee, WA",
+    name: "Fresh Alphonso Mangoes",
+    price: 450,
+    unit: "per dozen",
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80",
+    farmer: "Singh Orchards",
+    location: "Ratnagiri, India",
     category: "fruits",
     organic: false
   },
   {
     id: 5,
-    name: "Organic Milk",
-    price: 3.49,
+    name: "Organic Cow Milk",
+    price: 60,
     unit: "per liter",
     image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80",
-    farmer: "Happy Cow Dairy",
-    location: "Madison, WI",
+    farmer: "Gupta Dairy Farm",
+    location: "Gujarat, India",
     category: "dairy",
     organic: true
   },
   {
     id: 6,
-    name: "Fresh Eggs",
-    price: 4.99,
+    name: "Country Eggs",
+    price: 90,
     unit: "per dozen",
     image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=800&q=80",
-    farmer: "Free Range Ranch",
-    location: "Austin, TX",
+    farmer: "Reddy Poultry",
+    location: "Telangana, India",
     category: "dairy",
     organic: false
   },
   {
     id: 7,
-    name: "Organic Chicken",
-    price: 9.99,
+    name: "Organic Wheat",
+    price: 45,
     unit: "per kg",
-    image: "https://images.unsplash.com/photo-1587248720327-c22e8e960a0d?auto=format&fit=crop&w=800&q=80",
-    farmer: "Green Pastures",
-    location: "Burlington, VT",
-    category: "meat",
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1c5a6ec32?auto=format&fit=crop&w=800&q=80",
+    farmer: "Mishra Farms",
+    location: "Haryana, India",
+    category: "grains",
     organic: true
   },
   {
     id: 8,
-    name: "Brown Rice",
-    price: 2.99,
-    unit: "per kg",
-    image: "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=800&q=80",
-    farmer: "Golden Fields",
-    location: "Sacramento, CA",
-    category: "grains",
+    name: "Fresh Sugarcane",
+    price: 25,
+    unit: "per piece",
+    image: "https://images.unsplash.com/photo-1612207157596-8dbd81d983d3?auto=format&fit=crop&w=800&q=80",
+    farmer: "Verma Fields",
+    location: "Uttar Pradesh, India",
+    category: "produce",
     organic: false
   }
 ];
@@ -103,7 +102,7 @@ const Marketplace: React.FC = () => {
     searchTerm: '',
     category: 'all',
     isOrganic: false,
-    priceRange: [0, 100]
+    priceRange: [0, 500]
   });
 
   const handleFilterChange = (newFilters: any) => {
@@ -144,7 +143,7 @@ const Marketplace: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Marketplace</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Browse fresh, local produce directly from farms near you
+              Browse fresh, local produce directly from farms across India
             </p>
           </div>
 
@@ -174,7 +173,7 @@ const Marketplace: React.FC = () => {
                   searchTerm: '',
                   category: 'all',
                   isOrganic: false,
-                  priceRange: [0, 100]
+                  priceRange: [0, 500]
                 })}
                 className="mt-4 text-agro-primary hover:underline"
               >
