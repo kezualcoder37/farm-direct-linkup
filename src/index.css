@@ -44,6 +44,12 @@
 
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  /* Add smooth scrolling behavior */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -53,18 +59,57 @@
   }
 
   .agro-btn-primary {
-    @apply bg-agro-primary hover:bg-agro-dark text-white font-semibold py-2 px-4 rounded transition-colors duration-200;
+    @apply bg-agro-primary hover:bg-agro-dark text-white font-semibold py-2 px-4 rounded transition-all duration-200 hover:shadow-md;
   }
 
   .agro-btn-secondary {
-    @apply bg-white border-2 border-agro-primary text-agro-primary hover:bg-agro-light font-semibold py-2 px-4 rounded transition-colors duration-200;
+    @apply bg-white border-2 border-agro-primary text-agro-primary hover:bg-agro-light font-semibold py-2 px-4 rounded transition-all duration-200;
   }
   
   .product-card {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
   }
 
   .input-field {
     @apply px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-agro-primary;
+  }
+  
+  /* New animation utilities */
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-out_forwards];
+  }
+
+  .scale-in {
+    @apply scale-95 opacity-0 animate-[scaleIn_0.3s_ease-out_forwards];
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-md;
+  }
+  
+  .hover-grow {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

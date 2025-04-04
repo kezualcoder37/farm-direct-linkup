@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Users, ShoppingBag, MessageSquare, Truck } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -33,6 +34,26 @@ const features = [
   },
 ];
 
+// Animation variants for framer-motion
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
+
 const HowItWorks: React.FC = () => {
   return (
     <section className="agro-section bg-agro-light">
@@ -44,11 +65,21 @@ const HowItWorks: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {features.map((feature, index) => (
-            <div key={feature.name} className="bg-white p-6 rounded-lg shadow-md relative">
+            <motion.div 
+              key={feature.name} 
+              className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-xl transition-shadow duration-300 group"
+              variants={itemVariants}
+            >
               <div className="absolute -top-4 left-6">
-                <div className={`${feature.color} rounded-full p-3 inline-flex`}>
+                <div className={`${feature.color} rounded-full p-3 inline-flex group-hover:scale-110 transition-transform duration-300`}>
                   <feature.icon className="h-6 w-6" />
                 </div>
               </div>
@@ -60,10 +91,15 @@ const HowItWorks: React.FC = () => {
                 <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-agro-primary text-white text-lg font-bold">
                   {index + 1}
                 </div>
+                {index < features.length - 1 && (
+                  <div className="hidden lg:block w-full h-0.5 bg-gray-200 relative left-2">
+                    <div className="absolute h-2 w-2 rounded-full bg-agro-primary right-0 top-1/2 transform -translate-y-1/2"></div>
+                  </div>
+                )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
