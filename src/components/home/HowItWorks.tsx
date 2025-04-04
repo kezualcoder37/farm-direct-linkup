@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Users, ShoppingBag, MessageSquare, TruckFast } from 'lucide-react';
+import { Users, ShoppingBag, MessageSquare, Truck } from 'lucide-react';
 
 const features = [
   {
@@ -28,7 +28,7 @@ const features = [
     name: 'Complete Transactions',
     description:
       'Arrange pickup or delivery and make secure transactions through our platform.',
-    icon: TruckFast,
+    icon: Truck,
     color: 'bg-agro-earth/20 text-agro-earth',
   },
 ];

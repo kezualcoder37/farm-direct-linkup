@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, ShoppingBag } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 // Mock data for featured products
 const featuredProducts = [
