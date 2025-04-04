@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Hero: React.FC = () => {
+  const { openSignUpModal } = useAuth();
+
   return (
     <div className="relative overflow-hidden bg-agro-light">
       <div className="max-w-7xl mx-auto">
@@ -45,13 +48,20 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 1.2 }}
                   >
                     <div className="rounded-md shadow">
-                      <Button className="w-full flex items-center justify-center px-8 py-3 bg-agro-primary hover:bg-agro-dark group">
+                      <Button 
+                        className="w-full flex items-center justify-center px-8 py-3 bg-agro-primary hover:bg-agro-dark group"
+                        onClick={openSignUpModal}
+                      >
                         Join as Farmer
                         <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-in-out" />
                       </Button>
                     </div>
                     <div className="mt-3 sm:mt-0 sm:ml-3">
-                      <Button variant="outline" className="w-full flex items-center justify-center px-8 py-3 border-2 border-agro-primary text-agro-primary hover:bg-agro-light/80 group">
+                      <Button 
+                        variant="outline" 
+                        className="w-full flex items-center justify-center px-8 py-3 border-2 border-agro-primary text-agro-primary hover:bg-agro-light/80 group"
+                        onClick={openSignUpModal}
+                      >
                         Join as Vendor
                         <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-in-out" />
                       </Button>

@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAuth } from '@/contexts/AuthContext';
 
 const CTASection: React.FC = () => {
+  const { openLoginModal, openSignUpModal } = useAuth();
+
   return (
     <section className="bg-agro-primary py-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -42,11 +45,17 @@ const CTASection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <Button className="bg-white text-agro-primary hover:bg-gray-100 group">
+            <Button 
+              className="bg-white text-agro-primary hover:bg-gray-100 group"
+              onClick={openSignUpModal}
+            >
               Register as Farmer
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
-            <Button className="bg-agro-dark text-white hover:bg-agro-dark/90 group">
+            <Button 
+              className="bg-agro-dark text-white hover:bg-agro-dark/90 group"
+              onClick={openSignUpModal}
+            >
               Register as Vendor
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
@@ -59,9 +68,12 @@ const CTASection: React.FC = () => {
             viewport={{ once: true }}
           >
             Already have an account?{' '}
-            <Link to="/login" className="text-white font-medium underline hover:text-white/90 transition-colors">
+            <button
+              onClick={openLoginModal}
+              className="text-white font-medium underline hover:text-white/90 transition-colors cursor-pointer"
+            >
               Log in
-            </Link>
+            </button>
           </motion.p>
         </motion.div>
         
