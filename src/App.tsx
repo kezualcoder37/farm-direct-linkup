@@ -9,6 +9,7 @@ import Marketplace from "./pages/Marketplace";
 import Farmers from "./pages/Farmers";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import ProductDetail from "./pages/ProductDetail";
 import { AuthProvider } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/farmers" element={<Farmers />} />
             <Route path="/about" element={<About />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

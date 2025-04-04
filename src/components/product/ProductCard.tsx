@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   id: number;
@@ -27,6 +28,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
   location,
   organic = false
 }) => {
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const { toast } = useToast();
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent navigation when clicking the heart icon
+    setIsWishlisted(prev => !prev);
+    
+    toast({
+      title: isWishlisted ? "Removed from wishlist" : "Added to wishlist",
+      description: `${name} has been ${isWishlisted ? "removed from" : "added to"} your wishlist.`,
+      duration: 2000,
+    });
+  };
+
   return (
     <Link to={`/product/${id}`}>
       <motion.div 
@@ -44,9 +59,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
             {organic && (
               <Badge className="absolute top-2 right-2 bg-agro-primary">Organic</Badge>
             )}
-            <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <button className="bg-white/80 hover:bg-white p-1.5 rounded-full" onClick={(e) => e.preventDefault()}>
-                <Heart size={16} className="text-agro-primary" />
+            <div className="absolute top-2 left-2 opacity-100 group-hover:opacity-100 transition-opacity duration-300">
+              <button 
+                className={`${isWishlisted ? 'bg-agro-primary text-white' : 'bg-white/80 hover:bg-white'} p-1.5 rounded-full transition-colors`}
+                onClick={handleWishlistToggle}
+                aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+              >
+                <Heart size={16} className={isWishlisted ? 'fill-white' : 'text-agro-primary'} />
               </button>
             </div>
           </div>
