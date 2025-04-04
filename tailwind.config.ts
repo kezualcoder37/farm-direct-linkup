@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// AgroBridge custom colors
+				agro: {
+					primary: "#4CAF50",    // Fresh green
+					secondary: "#81C784",  // Light green
+					accent: "#FF8F00",     // Warm orange/amber
+					earth: "#8D6E63",      // Earthy brown
+					light: "#F1F8E9",      // Very light green/off-white
+					dark: "#33691E"        // Dark green
 				}
 			},
 			borderRadius: {
