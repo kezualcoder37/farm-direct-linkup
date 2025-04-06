@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, User, Heart, ShoppingBag, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
+import { useCart } from "@/contexts/CartContext";
 
 // Mock data for products (we'll replace this with API calls later)
 const allProducts = [
@@ -50,7 +51,6 @@ const allProducts = [
       "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80"
     ]
   },
-  // We'll keep the same products as in the Marketplace page
 ];
 
 const ProductDetail = () => {
@@ -61,6 +61,7 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const { toast } = useToast();
+  const { addItem } = useCart();
 
   useEffect(() => {
     // Simulate API call to fetch product details
@@ -85,10 +86,9 @@ const ProductDetail = () => {
   };
 
   const handleAddToCart = () => {
-    toast({
-      title: "Added to cart",
-      description: `${quantity} ${quantity > 1 ? 'items' : 'item'} of ${product.name} added to your cart.`,
-    });
+    if (product) {
+      addItem(product, quantity);
+    }
   };
 
   const handleWishlistToggle = () => {
@@ -258,7 +258,7 @@ const ProductDetail = () => {
                   </button>
                 </div>
                 <span className="ml-3 text-gray-500">
-                  Total: ₹{(product.price * quantity).toFixed(2)}
+                  Total: ₹{product ? (product.price * quantity).toFixed(2) : 0}
                 </span>
               </div>
 
