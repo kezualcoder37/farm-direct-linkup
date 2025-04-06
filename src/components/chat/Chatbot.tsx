@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, X, CornerDownLeft } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,7 @@ const initialMessages: Message[] = [
   {
     id: 1,
     type: 'bot',
-    text: 'Hello! I'm AgroBot. How can I help you today? You can ask me about crops, farming practices, or navigating the AgroBridge platform.',
+    text: "Hello! I'm AgroBot. How can I help you today? You can ask me about crops, farming practices, or navigating the AgroBridge platform.",
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   }
 ];
